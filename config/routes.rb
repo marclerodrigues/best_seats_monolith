@@ -7,6 +7,8 @@ Rails.application.routes.draw do
             put :batches, to: "seats/batches#update", as: :batch_update
           end
         end
+
+        resources :best_seats, only: :index
       end
     end
   end
