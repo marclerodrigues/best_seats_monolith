@@ -4,3 +4,11 @@ en:
       messages:
         success: "%{record} was successfuly created."
         error: "An error ocurred while creating %{record}, please check the params and try again."
+    update:
+      messages:
+        success: "%{record} was successfuly updated."
+        error: "An error ocurred while updating %{record}, please check the params and try again."
+    batch_update:
+      messages:
+        success: "%{record} were successfuly updated."
+        error: "An error ocurred while updating %{record}, please check the params and try again."
