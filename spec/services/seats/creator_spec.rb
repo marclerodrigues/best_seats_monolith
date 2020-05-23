@@ -16,12 +16,12 @@ RSpec.describe Seats::Creator do
 
       it "creates the correct seats" do
         subject
-        seats = venue.reload.seats.pluck(:row, :column)
+        seats = venue.reload.seats.pluck(:row, :column, :label)
         expected_seats = [
-          ['a', 1],
-          ['a', 2],
-          ['b', 1],
-          ['b', 2]
+          ['a', 1, 'a1'],
+          ['a', 2, 'a2'],
+          ['b', 1, 'b1'],
+          ['b', 2, 'b2']
         ]
         expect(seats).to eq(expected_seats)
       end
