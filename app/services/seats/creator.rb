@@ -18,7 +18,9 @@ module Seats
           parsed_seat = seats_parser.call(seat)
           Seat.create!(
             row: parsed_seat.row,
-            column: parsed_seat.column, venue: venue
+            column: parsed_seat.column,
+            label: seat,
+            venue: venue,
           )
         end
       end
