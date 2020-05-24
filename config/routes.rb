@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+  root to: "home#index"
+
   namespace :api do
-    resources :venues, only: [:index, :create] do
+    resources :venues, only: [:index, :create, :destroy] do
       member do
         resources :seats, only: [:index, :update], param: :seat_id do
           collection do
@@ -8,7 +10,7 @@ Rails.application.routes.draw do
           end
         end
 
-        resources :best_seats, only: :index
+        resources :best_seats, only: :create
       end
     end
   end

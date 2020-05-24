@@ -4,6 +4,9 @@ en:
       messages:
         success: "%{record} was successfuly created."
         error: "An error ocurred while creating %{record}, please check the params and try again."
+    destroy:
+      messages:
+        success: "%{record} was successfuly destroyed."
     update:
       messages:
         success: "%{record} was successfuly updated."

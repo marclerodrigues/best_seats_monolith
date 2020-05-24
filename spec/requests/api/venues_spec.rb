@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe "Api::Venues", type: :request do
   describe "GET /api/venues" do
@@ -113,6 +113,32 @@ RSpec.describe "Api::Venues", type: :request do
 
         expect(parsed_body).to eq(expected_body)
       end
+    end
+  end
+
+  describe "DELETE /api/venues/:id" do
+    let!(:venue) { create(:venue) }
+
+    it "returns the correct response" do
+      delete api_venue_path(id: venue.id)
+      expect(response).to have_http_status(200)
+    end
+
+    it "deletes the venue" do
+      expect {
+        delete api_venue_path(id: venue.id)
+      }.to change(Venue, :count).from(1).to(0)
+    end
+
+    it "returns the correct response body" do
+      delete api_venue_path(id: venue.id)
+
+      parsed_body = JSON.parse(response.body)
+      expected_body = {
+        message: "Venue was successfuly destroyed."
+      }.as_json
+
+      expect(parsed_body).to eq(expected_body)
     end
   end
 end
