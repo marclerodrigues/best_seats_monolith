@@ -28,7 +28,8 @@ RSpec.describe "Api::Seats", type: :request do
           id: seat.id,
           row: seat.row,
           column: seat.column,
-          available: seat.available
+          available: seat.available,
+          label: seat.label
         }.stringify_keys
       ]
     end

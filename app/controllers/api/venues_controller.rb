@@ -11,14 +11,24 @@ module Api
 
       if venue_creator.call
         render json: {
-          message: t('api.create.messages.success', record: 'Venue'),
+          message: t("api.create.messages.success", record: "Venue"),
           venue: venue_creator.venue
         }, status: :ok
       else
         render json: {
-          message: t('api.create.messages.error', record: 'Venue')
+          message: t("api.create.messages.error", record: "Venue")
         }, status: :unprocessable_entity
       end
+    end
+
+    def destroy
+      @venue = Venue.find(params[:id])
+
+      @venue.destroy
+
+      render json: {
+        message: t("api.destroy.messages.success", record: "Venue")
+      }, status: :ok
     end
 
     private
