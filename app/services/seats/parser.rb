@@ -11,7 +11,10 @@ module Seats
     end
 
     def call
-      @row, @column = seat.to_s.split("")
+      split_seat = seat.to_s.split("")
+
+      @row = split_seat.shift
+      @column = split_seat.join
       self
     end
   end
