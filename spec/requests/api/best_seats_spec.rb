@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Api::BestSeats", type: :request do
-  describe "GET /api/venues/:id/best_seats" do
+  describe "POST /api/venues/:id/best_seats" do
     context "when there are available seats" do
       let(:venue) { create(:venue, rows: 2, columns: 2) }
       let!(:seat_a1) { create(:seat, label: 'a1', column: 1, row: 'a', venue: venue) }
@@ -17,12 +17,12 @@ RSpec.describe "Api::BestSeats", type: :request do
       end
 
       it "returns the correct response" do
-        get api_best_seats_path(id: venue.id), params: best_seats_params
+        post api_best_seats_path(id: venue.id), params: best_seats_params
         expect(response).to have_http_status(200)
       end
 
       it "returns the correct response body" do
-        get api_best_seats_path(id: venue.id), params: best_seats_params
+        post api_best_seats_path(id: venue.id), params: best_seats_params
 
         parsed_body = JSON.parse(response.body)
         expect(parsed_body).to eq(["a1"])
@@ -45,12 +45,12 @@ RSpec.describe "Api::BestSeats", type: :request do
     end
 
     it "returns the correct response" do
-      get api_best_seats_path(id: venue.id), params: best_seats_params
+      post api_best_seats_path(id: venue.id), params: best_seats_params
       expect(response).to have_http_status(200)
     end
 
     it "returns the correct response body" do
-      get api_best_seats_path(id: venue.id), params: best_seats_params
+      post api_best_seats_path(id: venue.id), params: best_seats_params
 
       parsed_body = JSON.parse(response.body)
       expect(parsed_body).to eq([])
@@ -72,12 +72,12 @@ RSpec.describe "Api::BestSeats", type: :request do
     end
 
     it "returns the correct response" do
-      get api_best_seats_path(id: venue.id), params: best_seats_params
+      post api_best_seats_path(id: venue.id), params: best_seats_params
       expect(response).to have_http_status(200)
     end
 
     it "returns the correct response body" do
-      get api_best_seats_path(id: venue.id), params: best_seats_params
+      post api_best_seats_path(id: venue.id), params: best_seats_params
 
       parsed_body = JSON.parse(response.body)
       expect(parsed_body).to eq([])

@@ -1,7 +1,7 @@
 module Api
   class SeatsController < ApplicationController
     def index
-      @seats = Seat.where(venue_id: params[:id]).select(:id, :row, :column, :available)
+      @seats = Seat.where(venue_id: params[:id]).select(:id, :row, :column, :label, :available)
 
       render json: @seats
     end
