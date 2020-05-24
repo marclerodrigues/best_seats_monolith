@@ -2,7 +2,7 @@ require "best_seats/finder"
 
 module Api
   class BestSeatsController < ApplicationController
-    def index
+    def create
       available_seats = ::Venues::JsonBuilder.call(params[:id])
       finder = ::BestSeats::Finder.new(available_seats, seats_params[:requested_count].to_i)
 
