@@ -2,6 +2,10 @@
 
 A web application that allows you to find the best available seat for a given venue.
 
+Check it out live at:
+
+https://best-seats-test.herokuapp.com/
+
 ![](best-seats.gif)
 
 ### Dependencies
