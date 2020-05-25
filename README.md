@@ -2,6 +2,8 @@
 
 A web application that allows you to find the best available seat for a given venue.
 
+![](best-seats.gif)
+
 ### Dependencies
  - ruby 2.6.3
  - rails 6.0.3
